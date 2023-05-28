@@ -42,7 +42,7 @@ class _MyhomePageState extends State<MyhomePage> {
               ),
             ),
           ),
-          SongCard(),
+          Align(child: SongCard()),
           Align(
             alignment: const Alignment(0.85, -0.92),
             child: SizedBox(
@@ -63,7 +63,14 @@ class _MyhomePageState extends State<MyhomePage> {
               child: SizedBox(
                   width: 60,
                   height: 60,
-                  child: neubox(borderRadius:BorderRadius.circular(16) ,width: 40, child: Icon(Icons.menu))),
+                  child: neubox(
+                    theme: [Colors.white, Colors.white],
+                    borderRadius: BorderRadius.circular(16),
+                    width: 40,
+                    child: Icon(color: _isToggleSwitchOpen
+                                ? theme.Nmellow3
+                                : theme.Dmellow2,Icons.menu),
+                  )),
             ),
           ),
           AnimatedPositioned(
@@ -121,9 +128,12 @@ class _MyhomePageState extends State<MyhomePage> {
                           });
                         },
                         child: neubox(
-                          shape:BoxShape.circle,
+                          theme: [Colors.white, Colors.white],
+                          shape: BoxShape.circle,
                           child: Icon(
-                            color:_isToggleSwitchOpen?theme.blackM:Colors.white,
+                            color: _isToggleSwitchOpen
+                                ? theme.Nmellow3
+                                : theme.Dmellow2,
                             isSongPlaying ? Icons.pause : Icons.play_arrow,
                             size: 50,
                           ),

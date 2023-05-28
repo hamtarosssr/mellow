@@ -13,23 +13,21 @@ class SongCard extends StatefulWidget {
 class _SongCardState extends State<SongCard> {
   bool isFavorite = false;
   bool isRepeat = false;
+  
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+     double screenWidth = screenSize.width;
+    double screenHeight = screenSize.height;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25.0),
+      padding: EdgeInsets.all(20),
       child: Column(
         children: [
           SizedBox(
-                    height: 10,
-                  ),
-          Text(
-            'Mellow',
-            style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
+            height: 90,
           ),
-          SizedBox(height: 25,),
           neubox(
-            borderRadius:BorderRadius.circular(30),
-            width: 400,
+            borderRadius: BorderRadius.circular(30),
             theme: [Colors.red, Colors.red],
             child: Column(
               children: [
@@ -37,23 +35,23 @@ class _SongCardState extends State<SongCard> {
                   borderRadius: BorderRadius.circular(24),
                   child: Image.asset(
                     'assets/images/brunomars.jpg',
-                    height: 450,
+                    height: screenHeight/1.6,
                   ),
                 ),
                 Row(
                   children: [
                     Expanded(
                       child: Align(
-                        alignment: Alignment(-0.5,0),
+                        alignment: Alignment.centerLeft,
                         child: Column(
                           children: [
                             const SizedBox(
                               height: 6,
                             ),
-                            const Text(
+                            Text(
                               'Lazy Song',
                               style: TextStyle(
-                                  fontSize: 30,
+                                  fontSize: (screenWidth * 0.05)+20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.grey),
                             ),
@@ -63,7 +61,7 @@ class _SongCardState extends State<SongCard> {
                             Text(
                               'Bruno Mars',
                               style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: ((screenWidth * 0.05)/1.5)+20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.grey.shade500),
                             ),
@@ -82,10 +80,12 @@ class _SongCardState extends State<SongCard> {
                           child: Icon(
                             Icons.repeat,
                             color: isRepeat ? Colors.white : Colors.grey,
-                            size: 32,
+                            size: (screenWidth * 0.05)+20,
                           ),
                         ),
-                        SizedBox(width: 20,),
+                        SizedBox(
+                          width: 20,
+                        ),
                         GestureDetector(
                           onTap: () {
                             setState(() {
@@ -95,10 +95,12 @@ class _SongCardState extends State<SongCard> {
                           child: Icon(
                             Icons.favorite,
                             color: isFavorite ? Colors.red : Colors.grey,
-                            size: 32,
+                            size: (screenWidth * 0.05)+20,
                           ),
                         ),
-                        SizedBox(width: 10,)
+                        SizedBox(
+                          width: 10,
+                        )
                       ],
                     )
                   ],

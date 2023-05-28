@@ -50,7 +50,7 @@ class _songbarState extends State<songbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: height1,
+        height: 40,
         width: 400,
         color: c1,
         child: havesong

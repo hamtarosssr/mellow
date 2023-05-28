@@ -21,3 +21,10 @@ flutter:
   uses-material-design: true
   assets:
       - assets/images/
+  fonts:
+    - family: PoiretOne
+      fonts:
+        - asset: assets/fonts/PoiretOne-Regular.ttf
+    - family: RubikWetPaint
+      fonts:
+        - asset: assets/fonts/RubikWetPaint-Regular.ttf

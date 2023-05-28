@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'songbar.dart';
 
 class Anysong extends StatefulWidget {
   final String type;
-  Anysong({super.key, required this.type,});
+  final dynamic song;
+
+  Anysong({Key? key, required this.type, this.song = const SizedBox()});
 
   @override
   State<Anysong> createState() => _AnysongState();
@@ -33,15 +34,17 @@ class _AnysongState extends State<Anysong> {
                       ),
                     ),
                     Expanded(
-                        child: Text(
-                      widget.type,
-                      style: TextStyle(
+                      child: Text(
+                        widget.type,
+                        style: TextStyle(
                           fontSize: 60,
                           color: Colors.red.shade400,
                           fontFamily: 'JosefinSans',
-                          fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
-                    )),
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
@@ -63,7 +66,9 @@ class _AnysongState extends State<Anysong> {
                 height: 0,
                 thickness: 6,
               ),
-              songbar(nameSong:"kuy",isFavorite: true, whatIsThis: "song", isSongPlaying: true)
+              Column(
+                children: [widget.song],
+              ),
             ],
           ),
         ),
